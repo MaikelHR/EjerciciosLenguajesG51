@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	tamano := 5 // Cambia este valor para ajustar el tamaño del rombo
+	tamano := 15 // Cambia este valor para ajustar el tamaño del rombo
 	imprimirRombo(tamano)
 }
 
