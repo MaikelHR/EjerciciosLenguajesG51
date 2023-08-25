@@ -2,20 +2,24 @@ package main
 
 import "fmt"
 
-func rotate(arr []string, rotationCount int, direction int) {
+func rotar(arr []string, contRotar int, direccion int) {
 	length := len(arr)
 
-	if rotationCount > length {
-		rotationCount %= length
+	// Este código verifica si el número de rotaciones (`contRotar`) es mayor que la longitud de la matriz
+	// (`length`). Si es así, realiza la operación de módulo (`%`) para obtener el resto de `contRotar`
+	// dividido por `length`. Esto garantiza que el número de rotaciones esté dentro del rango de la
+	// longitud de la matriz.
+	if contRotar > length {
+		contRotar %= length
 	}
 
-	if direction == 0 { // Rotación a la izquierda
-		temp := append([]string{}, arr[:rotationCount]...)
-		copy(arr[:], arr[rotationCount:])
-		copy(arr[length-rotationCount:], temp)
-	} else if direction == 1 { // Rotación a la derecha
-		temp := append([]string{}, arr[length-rotationCount:]...)
-		copy(arr[rotationCount:], arr[:length-rotationCount])
+	if direccion == 0 { // Rotación a la izquierda
+		temp := append([]string{}, arr[:contRotar]...)
+		copy(arr[:], arr[contRotar:])
+		copy(arr[length-contRotar:], temp)
+	} else if direccion == 1 { // Rotación a la derecha
+		temp := append([]string{}, arr[length-contRotar:]...)
+		copy(arr[contRotar:], arr[:length-contRotar])
 		copy(arr[:], temp)
 	}
 }
@@ -24,6 +28,8 @@ func main() {
 	secuenciaOriginal := []string{"a", "b", "c", "d", "e", "f", "g", "h"}
 	fmt.Println("Secuencia Original:", secuenciaOriginal)
 
+	// La variable `rotaciones` es una porción de estructuras. Cada estructura en el segmento representa
+	// una operación de rotación que se realizará en la matriz `secuenciaOriginal`.
 	rotaciones := []struct {
 		rotacion int
 		direccion int
@@ -36,7 +42,7 @@ func main() {
 		nuevaSecuencia := make([]string, len(secuenciaOriginal))
 		copy(nuevaSecuencia, secuenciaOriginal)
 
-		rotate(nuevaSecuencia, r.rotacion, r.direccion)
+		rotar(nuevaSecuencia, r.rotacion, r.direccion)
 
 		direccion := "izquierda"
 		if r.direccion == 1 {
