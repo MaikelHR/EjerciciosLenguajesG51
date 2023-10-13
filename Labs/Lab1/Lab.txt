@@ -1,0 +1,3 @@
+El código como tal no presenta errores pero a la hora de ir haciendo las modificaciones finales presnetó un error a la hora de
+convertir los datos, aunque intenté no usar el rune y probar otras opciones no se pudo resolver, aunque igual traté de
+hacer todo lo especificado en el enunciado del laboratorio, generé la docu para que se explicara como funciona cada método
